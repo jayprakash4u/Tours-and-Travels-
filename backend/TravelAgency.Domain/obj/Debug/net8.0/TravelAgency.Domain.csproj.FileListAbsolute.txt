@@ -1,0 +1,12 @@
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\bin\Debug\net8.0\TravelAgency.Domain.deps.json
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\bin\Debug\net8.0\TravelAgency.Domain.dll
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\bin\Debug\net8.0\TravelAgency.Domain.pdb
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.AssemblyInfoInputs.cache
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.AssemblyInfo.cs
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.sourcelink.json
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.dll
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\refint\TravelAgency.Domain.dll
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.pdb
+C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\ref\TravelAgency.Domain.dll

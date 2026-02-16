@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TravelAgency.Web</name>
+    </assembly>
+    <members>
+        <member name="T:TravelAgency.Web.Controllers.AuthController">
+            <summary>
+            Controller for handling authentication operations including registration, login, and password management.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.AuthController.#ctor(TravelAgency.Application.Interfaces.IUserService,Microsoft.Extensions.Logging.ILogger{TravelAgency.Web.Controllers.AuthController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:TravelAgency.Web.Controllers.AuthController"/> class.
+            </summary>
+            <param name="userService">The user service for authentication operations.</param>
+            <param name="logger">The logger for recording authentication events.</param>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.AuthController.Register(TravelAgency.Application.DTOs.CreateUserDto)">
+            <summary>
+            Register a new user account
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.AuthController.Login(TravelAgency.Application.DTOs.LoginDto)">
+            <summary>
+            Login with email and password
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.AuthController.ChangePassword(TravelAgency.Web.Controllers.ChangePasswordRequest)">
+            <summary>
+            Change user password
+            </summary>
+        </member>
+        <member name="T:TravelAgency.Web.Controllers.ChangePasswordRequest">
+            <summary>
+            Request model for changing user password.
+            </summary>
+        </member>
+        <member name="P:TravelAgency.Web.Controllers.ChangePasswordRequest.CurrentPassword">
+            <summary>
+            Gets or sets the current password.
+            </summary>
+        </member>
+        <member name="P:TravelAgency.Web.Controllers.ChangePasswordRequest.NewPassword">
+            <summary>
+            Gets or sets the new password.
+            </summary>
+        </member>
+        <member name="T:TravelAgency.Web.Controllers.ImmigrationController">
+            <summary>
+            Controller for managing immigration applications and visa processes.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.#ctor(TravelAgency.Application.Interfaces.IImmigrationService,Microsoft.Extensions.Logging.ILogger{TravelAgency.Web.Controllers.ImmigrationController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:TravelAgency.Web.Controllers.ImmigrationController"/> class.
+            </summary>
+            <param name="immigrationService">The immigration service for managing immigration operations.</param>
+            <param name="logger">The logger for recording immigration events.</param>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.GetAllApplications">
+            <summary>
+            Get all immigration applications (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.GetApplicationById(System.Int32)">
+            <summary>
+            Get application by ID
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.GetUserApplications(System.Int32)">
+            <summary>
+            Get user's immigration applications
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.CreateApplication(TravelAgency.Application.DTOs.CreateImmigrationApplicationDto,System.Int32)">
+            <summary>
+            Create a new immigration application
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.UpdateApplication(System.Int32,TravelAgency.Application.DTOs.UpdateImmigrationApplicationDto)">
+            <summary>
+            Update an immigration application
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.UpdateApplicationStatus(System.Int32,TravelAgency.Application.DTOs.UpdateApplicationStatusDto)">
+            <summary>
+            Update application status (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.DeleteApplication(System.Int32)">
+            <summary>
+            Delete an immigration application
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.GetApplicationsByStatus(System.String)">
+            <summary>
+            Get applications by status
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.GetApplicationsByCountry(System.String)">
+            <summary>
+            Get applications by target country
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.ImmigrationController.UploadDocuments(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload application documents
+            </summary>
+        </member>
+        <member name="T:TravelAgency.Web.Controllers.TicketsController">
+            <summary>
+            Controller for managing travel ticket requests and bookings.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.#ctor(TravelAgency.Application.Interfaces.ITicketService,Microsoft.Extensions.Logging.ILogger{TravelAgency.Web.Controllers.TicketsController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:TravelAgency.Web.Controllers.TicketsController"/> class.
+            </summary>
+            <param name="ticketService">The ticket service for managing ticket operations.</param>
+            <param name="logger">The logger for recording ticket events.</param>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.GetAllTickets">
+            <summary>
+            Get all ticket requests (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.GetTicketById(System.Int32)">
+            <summary>
+            Get ticket by ID
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.GetUserTickets(System.Int32)">
+            <summary>
+            Get user's ticket requests
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.CreateTicket(TravelAgency.Application.DTOs.CreateTicketRequestDto,System.Int32)">
+            <summary>
+            Create a new ticket request
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.UpdateTicket(System.Int32,TravelAgency.Application.DTOs.UpdateTicketRequestDto)">
+            <summary>
+            Update a ticket request
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.UpdateTicketStatus(System.Int32,TravelAgency.Application.DTOs.UpdateTicketStatusDto)">
+            <summary>
+            Update ticket status (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.DeleteTicket(System.Int32)">
+            <summary>
+            Delete a ticket request
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.TicketsController.GetTicketsByStatus(System.String)">
+            <summary>
+            Get tickets by status
+            </summary>
+        </member>
+        <member name="T:TravelAgency.Web.Controllers.UsersController">
+            <summary>
+            Controller for managing user profiles and information.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.#ctor(TravelAgency.Application.Interfaces.IUserService,Microsoft.Extensions.Logging.ILogger{TravelAgency.Web.Controllers.UsersController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:TravelAgency.Web.Controllers.UsersController"/> class.
+            </summary>
+            <param name="userService">The user service for managing user operations.</param>
+            <param name="logger">The logger for recording user events.</param>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.GetAllUsers">
+            <summary>
+            Get all users (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.GetUserById(System.Int32)">
+            <summary>
+            Get user by ID
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.GetUserByEmail(System.String)">
+            <summary>
+            Get user by email
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.UpdateUser(System.Int32,TravelAgency.Application.DTOs.UpdateUserDto)">
+            <summary>
+            Update user profile
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Delete user account (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.UsersController.CheckEmailAvailability(System.String)">
+            <summary>
+            Check if email is available
+            </summary>
+        </member>
+        <member name="T:TravelAgency.Web.Controllers.VehiclesController">
+            <summary>
+            Controller for managing vehicle bookings and rentals.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.#ctor(TravelAgency.Application.Interfaces.IVehicleBookingService,Microsoft.Extensions.Logging.ILogger{TravelAgency.Web.Controllers.VehiclesController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:TravelAgency.Web.Controllers.VehiclesController"/> class.
+            </summary>
+            <param name="vehicleService">The vehicle booking service for managing vehicle operations.</param>
+            <param name="logger">The logger for recording vehicle events.</param>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.GetAllBookings">
+            <summary>
+            Get all vehicle bookings (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.GetBookingById(System.Int32)">
+            <summary>
+            Get booking by ID
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.GetUserBookings(System.Int32)">
+            <summary>
+            Get user's vehicle bookings
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.CreateBooking(TravelAgency.Application.DTOs.CreateVehicleBookingDto,System.Int32)">
+            <summary>
+            Create a new vehicle booking
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.UpdateBooking(System.Int32,TravelAgency.Application.DTOs.UpdateVehicleBookingDto)">
+            <summary>
+            Update a vehicle booking
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.UpdateBookingStatus(System.Int32,TravelAgency.Application.DTOs.UpdateVehicleStatusDto)">
+            <summary>
+            Update booking status (Admin only)
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.DeleteBooking(System.Int32)">
+            <summary>
+            Delete a vehicle booking
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.GetAvailableVehicles(System.DateTime,System.DateTime)">
+            <summary>
+            Get available vehicles for date range
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.VehiclesController.GetBookingsByStatus(System.String)">
+            <summary>
+            Get bookings by status
+            </summary>
+        </member>
+    </members>
+</doc>
