@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Navbar } from '@components/Navbar'
 import { Card } from '@components/Card'
 import { Button } from '@components/Button'
 import { LoadingSpinner } from '@components/LoadingSpinner'
-import { vehicleService } from '@services/vehicleService'
-import { useAuthStore } from '@store/authStore'
 import { CarIcon, DriveIcon, BusIcon, StarIcon } from '../icons'
 
 export function VehiclesPage() {
   const [bookings, setBookings] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-  const { user } = useAuthStore()
+  const userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).id : null
 
   useEffect(() => {
     loadBookings()
@@ -20,8 +19,11 @@ export function VehiclesPage() {
   const loadBookings = async () => {
     try {
       setIsLoading(true)
-      const data = await vehicleService.getMyBookings(user?.id)
-      setBookings(data || [])
+      const token = localStorage.getItem('token')
+      const response = await axios.get(`/api/vehicles/user/${userId}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      })
+      setBookings(response.data || [])
     } catch (err) {
       setError(err.message)
       console.error('Error loading bookings:', err)

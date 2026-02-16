@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useAuthStore } from '@store/authStore'
+import axios from 'axios'
 import { useNotification } from '@hooks/useNotification'
 import { Card, Button, Input } from '@components/index'
 
@@ -14,7 +14,6 @@ const loginSchema = z.object({
 
 export function LoginPage() {
   const navigate = useNavigate()
-  const { login } = useAuthStore()
   const { error: showError } = useNotification()
   const [isLoading, setIsLoading] = useState(false)
   
@@ -29,10 +28,19 @@ export function LoginPage() {
   const onSubmit = async (data) => {
     try {
       setIsLoading(true)
-      await login(data.email, data.password)
-      navigate('/dashboard')
+      const response = await axios.post('/api/auth/login', { email: data.email, password: data.password })
+      
+      if (response.data.success && response.data.data) {
+        const loginData = response.data.data
+        localStorage.setItem('token', loginData.token)
+        localStorage.setItem('user', JSON.stringify(loginData))
+        navigate('/dashboard')
+      } else {
+        throw new Error(response.data.message || 'Login failed')
+      }
     } catch (err) {
-      showError('Login failed. Please check your credentials.')
+      const message = err.response?.data?.message || err.message || 'Login failed'
+      showError(message)
     } finally {
       setIsLoading(false)
     }

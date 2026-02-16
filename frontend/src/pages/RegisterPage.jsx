@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useAuthStore } from '@store/authStore'
+import axios from 'axios'
 import { useNotification } from '@hooks/useNotification'
 import { Card, Button, Input } from '@components/index'
 
@@ -17,7 +17,6 @@ const registerSchema = z.object({
 
 export function RegisterPage() {
   const navigate = useNavigate()
-  const { register: registerUser } = useAuthStore()
   const { success: showSuccess, error: showError } = useNotification()
   const [isLoading, setIsLoading] = useState(false)
   
@@ -32,11 +31,17 @@ export function RegisterPage() {
   const onSubmit = async (data) => {
     try {
       setIsLoading(true)
-      await registerUser(data)
-      showSuccess('Registration successful! Please log in.')
-      navigate('/login')
+      const response = await axios.post('/api/auth/register', data)
+      
+      if (response.data.success) {
+        showSuccess('Registration successful! Please log in.')
+        navigate('/login')
+      } else {
+        throw new Error(response.data.message || 'Registration failed')
+      }
     } catch (err) {
-      showError('Registration failed. Please try again.')
+      const message = err.response?.data?.message || err.message || 'Registration failed'
+      showError(message)
     } finally {
       setIsLoading(false)
     }

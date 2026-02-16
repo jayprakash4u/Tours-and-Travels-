@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {}
+    "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj": {
+    "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj",
+        "projectUniqueName": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj",
         "projectName": "TravelAgency.Domain",
-        "projectPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj",
+        "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj",
         "packagesPath": "C:\\Users\\Jay Prakash Yadav\\.nuget\\packages\\",
-        "outputPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\obj\\",
+        "outputPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {
+    "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj",
+        "projectUniqueName": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj",
         "projectName": "TravelAgency.Infrastructure",
-        "projectPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj",
+        "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Jay Prakash Yadav\\.nuget\\packages\\",
-        "outputPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\obj\\",
+        "outputPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj": {
-                "projectPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj"
+              "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj": {
+                "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj"
               }
             }
           }

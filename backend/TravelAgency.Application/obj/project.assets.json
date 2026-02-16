@@ -3806,11 +3806,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Application\\TravelAgency.Application.csproj",
+      "projectUniqueName": "D:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\TravelAgency.Application.csproj",
       "projectName": "TravelAgency.Application",
-      "projectPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Application\\TravelAgency.Application.csproj",
+      "projectPath": "D:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\TravelAgency.Application.csproj",
       "packagesPath": "C:\\Users\\Jay Prakash Yadav\\.nuget\\packages\\",
-      "outputPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Application\\obj\\",
+      "outputPath": "D:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3831,11 +3831,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj": {
-              "projectPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Domain\\TravelAgency.Domain.csproj"
+            "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj": {
+              "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Domain\\TravelAgency.Domain.csproj"
             },
-            "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {
-              "projectPath": "D:\\FullStackprojects\\AlfaTravels\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj"
+            "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {
+              "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj"
             }
           }
         }

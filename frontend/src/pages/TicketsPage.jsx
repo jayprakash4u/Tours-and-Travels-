@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Navbar } from '@components/Navbar'
 import { Card } from '@components/Card'
 import { Button } from '@components/Button'
 import { LoadingSpinner } from '@components/LoadingSpinner'
-import { ticketService } from '@services/ticketService'
-import { useAuthStore } from '@store/authStore'
 import { PlaneIcon, CarIcon, TrainIcon } from '../icons'
 
 export function TicketsPage() {
   const [tickets, setTickets] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-  const { user } = useAuthStore()
+  const userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).id : null
 
   useEffect(() => {
     loadTickets()
@@ -20,8 +19,11 @@ export function TicketsPage() {
   const loadTickets = async () => {
     try {
       setIsLoading(true)
-      const data = await ticketService.getMyTickets(user?.id)
-      setTickets(data || [])
+      const token = localStorage.getItem('token')
+      const response = await axios.get(`/api/tickets/user/${userId}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      })
+      setTickets(response.data || [])
     } catch (err) {
       setError(err.message)
       console.error('Error loading tickets:', err)

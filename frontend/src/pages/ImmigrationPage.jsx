@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Navbar } from '@components/Navbar'
 import { Card } from '@components/Card'
 import { Button } from '@components/Button'
 import { LoadingSpinner } from '@components/LoadingSpinner'
-import { immigrationService } from '@services/immigrationService'
-import { useAuthStore } from '@store/authStore'
 import { ShieldIcon, PassportIcon, SupportIcon, DocumentIcon } from '../icons'
 
 export function ImmigrationPage() {
   const [applications, setApplications] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-  const { user } = useAuthStore()
+  const userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).id : null
 
   useEffect(() => {
     loadApplications()
@@ -20,8 +19,11 @@ export function ImmigrationPage() {
   const loadApplications = async () => {
     try {
       setIsLoading(true)
-      const data = await immigrationService.getMyApplications(user?.id)
-      setApplications(data || [])
+      const token = localStorage.getItem('token')
+      const response = await axios.get(`/api/immigration/user/${userId}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {}
+      })
+      setApplications(response.data || [])
     } catch (err) {
       setError(err.message)
       console.error('Error loading applications:', err)
