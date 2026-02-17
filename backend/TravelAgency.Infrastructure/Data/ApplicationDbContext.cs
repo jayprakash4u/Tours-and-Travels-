@@ -13,6 +13,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<TicketRequest> TicketRequests { get; set; } = null!;
     public DbSet<VehicleBooking> VehicleBookings { get; set; } = null!;
     public DbSet<ImmigrationApplication> ImmigrationApplications { get; set; } = null!;
+    public DbSet<HotelBooking> HotelBookings { get; set; } = null!;
+    public DbSet<LaborApproval> LaborApprovals { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -44,6 +46,21 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(i => i.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        // HotelBooking configuration
+        modelBuilder.Entity<HotelBooking>()
+            .HasKey(h => h.Id);
+
+        modelBuilder.Entity<HotelBooking>()
+            .Property(h => h.TotalPrice)
+            .HasPrecision(10, 2);
+
+        // Add relationship for HotelBookings
+        modelBuilder.Entity<User>()
+            .HasMany<HotelBooking>()
+            .WithOne()
+            .HasForeignKey("UserId")
+            .OnDelete(DeleteBehavior.Cascade);
+
         // TicketRequest configuration
         modelBuilder.Entity<TicketRequest>()
             .HasKey(t => t.Id);
@@ -67,5 +84,35 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<ImmigrationApplication>()
             .HasIndex(i => i.PassportNumber)
             .IsUnique();
+
+        // LaborApproval configuration
+        modelBuilder.Entity<LaborApproval>()
+            .HasKey(l => l.Id);
+
+        modelBuilder.Entity<LaborApproval>()
+            .Property(l => l.ApplicationFee)
+            .HasPrecision(10, 2);
+
+        modelBuilder.Entity<LaborApproval>()
+            .Property(l => l.ServiceCharge)
+            .HasPrecision(10, 2);
+
+        modelBuilder.Entity<LaborApproval>()
+            .Property(l => l.TotalFee)
+            .HasPrecision(10, 2);
+
+        modelBuilder.Entity<LaborApproval>()
+            .Property(l => l.OfferedSalary)
+            .HasPrecision(10, 2);
+
+        modelBuilder.Entity<LaborApproval>()
+            .HasIndex(l => l.PassportNumber);
+
+        // LaborApproval relationship - use the navigation property
+        modelBuilder.Entity<LaborApproval>()
+            .HasOne(l => l.User)
+            .WithMany()
+            .HasForeignKey(l => l.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

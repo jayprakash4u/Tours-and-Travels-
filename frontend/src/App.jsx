@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthStore } from '@store/authStore'
 import { NotificationContainer, ProtectedRoute } from '@components/index'
-import { LoginPage, RegisterPage, DashboardPage, LandingPage, TicketsPage, VehiclesPage, ImmigrationPage, HotelsPage } from '@pages/index'
+import { LoginPage, RegisterPage, DashboardPage, LandingPage, TicketsPage, VehiclesPage, ImmigrationPage, HotelsPage, LaborApprovalPage } from '@pages/index'
 
 function App() {
   const { hydrate, token } = useAuthStore()
@@ -87,6 +87,15 @@ function App() {
           element={
             <ProtectedRoute>
               <HotelsPage />
+            </ProtectedRoute>
+          }
+        />
+        
+        <Route
+          path="/labor-approval"
+          element={
+            <ProtectedRoute>
+              <LaborApprovalPage />
             </ProtectedRoute>
           }
         />

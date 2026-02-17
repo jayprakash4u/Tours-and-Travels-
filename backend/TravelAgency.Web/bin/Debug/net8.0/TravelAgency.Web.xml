@@ -46,6 +46,56 @@
             Gets or sets the new password.
             </summary>
         </member>
+        <member name="T:TravelAgency.Web.Controllers.HotelsController">
+            <summary>
+            Controller for managing hotel bookings and reservations.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.#ctor(TravelAgency.Application.Interfaces.IHotelBookingService,Microsoft.Extensions.Logging.ILogger{TravelAgency.Web.Controllers.HotelsController})">
+            <summary>
+            Initializes a new instance of the HotelsController class.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.GetAllBookings">
+            <summary>
+            Gets all hotel bookings (Admin only).
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.GetBookingById(System.Int32)">
+            <summary>
+            Gets a hotel booking by ID.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.GetUserBookings(System.Int32)">
+            <summary>
+            Gets user's hotel bookings.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.SearchHotels(System.String,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Searches for available hotels.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.CreateBooking(TravelAgency.Application.DTOs.CreateHotelBookingDto,System.Int32)">
+            <summary>
+            Creates a new hotel booking.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.UpdateBooking(System.Int32,TravelAgency.Application.DTOs.UpdateHotelBookingDto)">
+            <summary>
+            Updates a hotel booking.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.UpdateBookingStatus(System.Int32,TravelAgency.Application.DTOs.UpdateHotelBookingStatusDto)">
+            <summary>
+            Updates a hotel booking status.
+            </summary>
+        </member>
+        <member name="M:TravelAgency.Web.Controllers.HotelsController.DeleteBooking(System.Int32)">
+            <summary>
+            Deletes a hotel booking.
+            </summary>
+        </member>
         <member name="T:TravelAgency.Web.Controllers.ImmigrationController">
             <summary>
             Controller for managing immigration applications and visa processes.

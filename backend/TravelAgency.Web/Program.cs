@@ -12,7 +12,11 @@ using TravelAgency.Infrastructure.Common;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
 builder.Services.AddEndpointsApiExplorer();
 
 // Add Swagger/OpenAPI
@@ -120,12 +124,15 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<IVehicleBookingService, VehicleBookingService>();
 builder.Services.AddScoped<IImmigrationService, ImmigrationService>();
+builder.Services.AddScoped<IHotelBookingService, HotelBookingService>();
+builder.Services.AddScoped<ILaborApprovalService, LaborApprovalService>();
 
 // Register repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IVehicleBookingRepository, VehicleBookingRepository>();
 builder.Services.AddScoped<IImmigrationRepository, ImmigrationRepository>();
+builder.Services.AddScoped<IHotelBookingRepository, HotelBookingRepository>();
 
 // Register generic repository
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

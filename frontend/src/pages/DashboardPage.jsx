@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuthStore } from '@store/authStore'
 import { Card, Navbar, LoadingSpinner } from '@components/index'
+import { useNotification } from '@hooks/useNotification'
 import { 
   PlaneIcon, 
   CarIcon, 
@@ -12,6 +13,10 @@ import {
   AddIcon,
   UserIcon
 } from '../icons'
+import { ticketService } from '@services/ticketService'
+import { vehicleService } from '@services/vehicleService'
+import { immigrationService } from '@services/immigrationService'
+import { hotelService } from '@services/hotelService'
 
 // Generate avatar from name
 const getAvatar = (name) => {
@@ -23,33 +28,149 @@ const getAvatar = (name) => {
 
 export function DashboardPage() {
   const { user } = useAuthStore()
+  const { error: showError } = useNotification()
   const [stats, setStats] = useState([])
+  const [recentActivities, setRecentActivities] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const userId = user?.id
 
   useEffect(() => {
-    setTimeout(() => {
-      setStats([
-        { label: 'Total Bookings', value: 12, icon: <FileIcon />, color: '#3b82f6' },
-        { label: 'Active Trips', value: 3, icon: <PlaneIcon />, color: '#22c55e' },
-        { label: 'Applications', value: 5, icon: <ShieldIcon />, color: '#a855f7' },
-        { label: 'Total Spent', value: '$2,450', icon: <MoneyIcon />, color: '#f59e0b' },
-      ])
-      setIsLoading(false)
-    }, 500)
-  }, [])
+    if (userId) {
+      loadDashboardData()
+    }
+  }, [userId])
 
-  const recentActivities = [
-    { title: 'Flight to Dubai confirmed', time: '2 hours ago', icon: <PlaneIcon />, status: 'confirmed' },
-    { title: 'Visa application under review', time: '1 day ago', icon: <ShieldIcon />, status: 'pending' },
-    { title: 'Hotel reservation completed', time: '2 days ago', icon: <HomeIcon />, status: 'confirmed' },
-    { title: 'Travel insurance purchased', time: '3 days ago', icon: <ShieldIcon />, status: 'confirmed' },
-  ]
+  const loadDashboardData = async () => {
+    try {
+      setIsLoading(true)
+      
+      // Fetch data from all services
+      const [ticketsRes, vehiclesRes, immigrationRes, hotelsRes] = await Promise.allSettled([
+        ticketService.getUserTickets(userId),
+        vehicleService.getUserBookings(userId),
+        immigrationService.getUserApplications(userId),
+        hotelService.getUserBookings(userId)
+      ])
+
+      // Extract data safely
+      const tickets = ticketsRes.status === 'fulfilled' ? (ticketsRes.value?.data || []) : []
+      const vehicles = vehiclesRes.status === 'fulfilled' ? (vehiclesRes.value?.data || []) : []
+      const applications = immigrationRes.status === 'fulfilled' ? (immigrationRes.value?.data || []) : []
+      const hotels = hotelsRes.status === 'fulfilled' ? (hotelsRes.value?.data || []) : []
+
+      // Calculate stats
+      const totalBookings = tickets.length + vehicles.length + hotels.length
+      const activeTrips = tickets.filter(t => t.status === 0 || t.status === 'Pending').length + 
+                         vehicles.filter(v => v.status === 0 || v.status === 'Pending').length +
+                         hotels.filter(h => h.status === 0 || h.status === 'Pending').length
+      const totalApplications = applications.length
+
+      setStats([
+        { label: 'Total Bookings', value: totalBookings, icon: <FileIcon />, color: '#3b82f6' },
+        { label: 'Active Trips', value: activeTrips, icon: <PlaneIcon />, color: '#22c55e' },
+        { label: 'Applications', value: totalApplications, icon: <ShieldIcon />, color: '#a855f7' },
+        { label: 'Total Services', value: totalBookings + totalApplications, icon: <MoneyIcon />, color: '#f59e0b' },
+      ])
+
+      // Build recent activities array
+      const activities = []
+
+      // Add ticket bookings
+      tickets.forEach(ticket => {
+        activities.push({
+          title: `Flight booking: ${ticket.fromLocation} → ${ticket.toLocation}`,
+          time: new Date(ticket.createdDate),
+          icon: <PlaneIcon />,
+          status: getStatusName(ticket.status),
+          type: 'Ticket'
+        })
+      })
+
+      // Add vehicle rentals
+      vehicles.forEach(vehicle => {
+        activities.push({
+          title: `${vehicle.vehicleType} rental: ${vehicle.pickupLocation} → ${vehicle.dropLocation}`,
+          time: new Date(vehicle.createdDate),
+          icon: <CarIcon />,
+          status: getStatusName(vehicle.status),
+          type: 'Vehicle'
+        })
+      })
+
+      // Add hotel bookings
+      hotels.forEach(hotel => {
+        activities.push({
+          title: `Hotel: ${hotel.hotelName} in ${hotel.location}`,
+          time: new Date(hotel.createdDate),
+          icon: <HomeIcon />,
+          status: getStatusName(hotel.status),
+          type: 'Hotel'
+        })
+      })
+
+      // Add visa applications
+      applications.forEach(app => {
+        activities.push({
+          title: `${app.visaType} visa application for ${app.targetCountry}`,
+          time: new Date(app.createdDate),
+          icon: <ShieldIcon />,
+          status: getStatusName(app.status),
+          type: 'Visa'
+        })
+      })
+
+      // Sort by date (newest first) and take last 6
+      const sortedActivities = activities.sort((a, b) => b.time - a.time).slice(0, 6)
+      setRecentActivities(sortedActivities)
+
+    } catch (err) {
+      console.error('Error loading dashboard data:', err)
+      showError('Failed to load dashboard data')
+      setStats([
+        { label: 'Total Bookings', value: 0, icon: <FileIcon />, color: '#3b82f6' },
+        { label: 'Active Trips', value: 0, icon: <PlaneIcon />, color: '#22c55e' },
+        { label: 'Applications', value: 0, icon: <ShieldIcon />, color: '#a855f7' },
+        { label: 'Total Services', value: 0, icon: <MoneyIcon />, color: '#f59e0b' },
+      ])
+      setRecentActivities([])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const getStatusName = (status) => {
+    if (typeof status === 'number') {
+      const statusMap = {
+        0: 'pending',
+        1: 'confirmed',
+        2: 'cancelled',
+        3: 'completed'
+      }
+      return statusMap[status] || 'pending'
+    }
+    return (status || 'pending').toLowerCase()
+  }
+
+  const getTimeAgo = (date) => {
+    const now = new Date()
+    const diff = now - date
+    const seconds = Math.floor(diff / 1000)
+    const minutes = Math.floor(seconds / 60)
+    const hours = Math.floor(minutes / 60)
+    const days = Math.floor(hours / 24)
+
+    if (days > 0) return `${days}d ago`
+    if (hours > 0) return `${hours}h ago`
+    if (minutes > 0) return `${minutes}m ago`
+    return 'Just now'
+  }
 
   const quickActions = [
     { title: 'Book Flight', desc: 'Search & book flights', icon: <PlaneIcon />, link: '/tickets' },
     { title: 'Rent Vehicle', desc: 'Cars, SUVs & more', icon: <CarIcon />, link: '/vehicles' },
     { title: 'Visa Application', desc: 'Apply for visa', icon: <ShieldIcon />, link: '/immigration' },
     { title: 'Hotel Booking', desc: 'Find best hotels', icon: <HomeIcon />, link: '/hotels' },
+    { title: 'Labor Approval', desc: 'Shram Swikriti', icon: <ShieldIcon />, link: '/labor-approval' },
   ]
 
   if (isLoading) {
@@ -80,7 +201,13 @@ export function DashboardPage() {
             </div>
           </div>
           <div className="header-actions">
-            <button className="btn btn-outline"><SettingsIcon /> Settings</button>
+            <button 
+              className="btn btn-outline"
+              onClick={() => loadDashboardData()}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Refreshing...' : '⟳ Refresh'}
+            </button>
             <button className="btn btn-primary"><AddIcon /> New Booking</button>
           </div>
         </div>
@@ -120,18 +247,24 @@ export function DashboardPage() {
           {/* Recent Activity */}
           <Card title="Recent Activity">
             <div className="activity-list">
-              {recentActivities.map((activity, index) => (
-                <div key={index} className="activity-item">
-                  <span className="activity-icon">{activity.icon}</span>
-                  <div className="activity-content">
-                    <h4>{activity.title}</h4>
-                    <p>{activity.time}</p>
-                  </div>
-                  <span className={`activity-status status-${activity.status}`}>
-                    {activity.status}
-                  </span>
+              {recentActivities.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '2rem', color: '#999' }}>
+                  <p>No recent activities yet. Start booking to see your activities here!</p>
                 </div>
-              ))}
+              ) : (
+                recentActivities.map((activity, index) => (
+                  <div key={index} className="activity-item">
+                    <span className="activity-icon">{activity.icon}</span>
+                    <div className="activity-content">
+                      <h4>{activity.title}</h4>
+                      <p>{getTimeAgo(activity.time)}</p>
+                    </div>
+                    <span className={`activity-status status-${activity.status}`}>
+                      {activity.status}
+                    </span>
+                  </div>
+                ))
+              )}
             </div>
           </Card>
         </div>

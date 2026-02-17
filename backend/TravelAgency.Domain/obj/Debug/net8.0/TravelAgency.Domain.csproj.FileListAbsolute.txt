@@ -10,3 +10,15 @@ C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\
 C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\refint\TravelAgency.Domain.dll
 C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.pdb
 C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Domain\obj\Debug\net8.0\ref\TravelAgency.Domain.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\bin\Debug\net8.0\TravelAgency.Domain.deps.json
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\bin\Debug\net8.0\TravelAgency.Domain.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\bin\Debug\net8.0\TravelAgency.Domain.pdb
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.GeneratedMSBuildEditorConfig.editorconfig
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.AssemblyInfoInputs.cache
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.AssemblyInfo.cs
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.csproj.CoreCompileInputs.cache
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.sourcelink.json
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\refint\TravelAgency.Domain.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\TravelAgency.Domain.pdb
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Domain\obj\Debug\net8.0\ref\TravelAgency.Domain.dll

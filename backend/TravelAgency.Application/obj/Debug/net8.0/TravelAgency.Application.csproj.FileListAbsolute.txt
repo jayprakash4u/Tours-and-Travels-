@@ -16,3 +16,21 @@ C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Application
 C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Application\obj\Debug\net8.0\refint\TravelAgency.Application.dll
 C:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.pdb
 c:\Users\Jay Prakash Yadav\OneDrive\Desktop\AlfaTravels\TravelAgency.Application\obj\Debug\net8.0\ref\TravelAgency.Application.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Application.deps.json
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Application.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Application.pdb
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Domain.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Infrastructure.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Domain.pdb
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\bin\Debug\net8.0\TravelAgency.Infrastructure.pdb
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.csproj.AssemblyReference.cache
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.GeneratedMSBuildEditorConfig.editorconfig
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.AssemblyInfoInputs.cache
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.AssemblyInfo.cs
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.csproj.CoreCompileInputs.cache
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.sourcelink.json
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAg.4DD6FA7B.Up2Date
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\refint\TravelAgency.Application.dll
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\TravelAgency.Application.pdb
+d:\FullStackprojects\AlfaTravels\backend\TravelAgency.Application\obj\Debug\net8.0\ref\TravelAgency.Application.dll

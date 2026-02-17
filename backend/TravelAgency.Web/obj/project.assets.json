@@ -7988,8 +7988,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\TravelAgency.Application.csproj": {
-              "projectPath": "D:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\TravelAgency.Application.csproj"
+            "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\TravelAgency.Application.csproj": {
+              "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Application\\TravelAgency.Application.csproj"
             },
             "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj": {
               "projectPath": "d:\\FullStackprojects\\AlfaTravels\\backend\\TravelAgency.Infrastructure\\TravelAgency.Infrastructure.csproj"
